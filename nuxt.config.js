@@ -30,7 +30,7 @@ export default {
     '@nuxtjs/vuetify'
   ],
 
-  modules: [],
+  modules: ['@nuxtjs/tailwindcss'],
 
   vuetify: {
     customVariables: ['~/assets/variables.scss'],

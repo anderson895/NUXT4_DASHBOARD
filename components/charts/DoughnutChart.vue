@@ -1,15 +1,30 @@
 <template>
-  <div>
-    <h3 class="text-center mb-4">Doughnut Chart</h3>
-    <div class="grid grid-cols-3 gap-4 mb-4">
-      <div v-for="(value, index) in fruitData" :key="index">
-        <label>{{ labels[index] }}</label>
-        <input type="number" v-model.number="fruitData[index]" class="border rounded p-1 w-full" />
+  <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+    <h3 class="text-center text-xl font-semibold text-gray-800 mb-6">Doughnut Chart</h3>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+      <div
+        v-for="(value, index) in fruitData"
+        :key="index"
+        class="bg-white p-4 rounded shadow-sm border border-gray-200"
+      >
+        <label class="block text-sm font-medium text-gray-700 mb-1">
+          {{ labels[index] }}
+        </label>
+        <input
+          type="number"
+          v-model.number="fruitData[index]"
+          class="w-full p-2 border border-gray-300 rounded bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
       </div>
     </div>
-    <Doughnut :data="chartData" :options="options" />
+
+    <div class="bg-white p-4 rounded shadow">
+      <Doughnut :data="chartData" :options="options" />
+    </div>
   </div>
 </template>
+
 
 <script setup>
 import { ref, computed } from 'vue'
